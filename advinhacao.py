@@ -15,22 +15,20 @@ while True:
     else:
         print("DIGITE ->1<- PARA COMEÇAR")
 
-
-numero_secreto = random.randint(1,10)
+numero_secreto = 1
 
 total_tentativas = 3
 tentativa = 1
 
-
-
-while(tentativa <= total_tentativas):
+while (tentativa <= total_tentativas):
     entrada = input("Digite um número: ")
     numero_usuario = int(entrada)
-    print(tentativa, "de", total_tentativas)
-    print("você escolheu o número:", numero_usuario)
+    print("tentativa {} de {}".format(tentativa, total_tentativas))
+    print("você escolheu o número:{}".format(numero_usuario))
 
     if (numero_secreto == numero_usuario):
         print("PARABÉNS, VOCÊ ACERTOU")
+        break
     elif (numero_secreto > numero_usuario):
         print("CHUTE BAIXO")
     else:
@@ -38,8 +36,8 @@ while(tentativa <= total_tentativas):
 
     if (tentativa == 2):
         print("Ultima chance, escolha com sabedoria")
-    elif(tentativa == 3):
-        print("O NUMERO ERA:", numero_secreto)
+    elif (tentativa == 3):
+        print("O NUMERO ERA:{}".format(numero_secreto))
         print("******GAME OVER******")
 
     tentativa = tentativa + 1
@@ -47,15 +45,15 @@ while(tentativa <= total_tentativas):
 while True:
     escolha_input = input("***** APERTE -> 0 PARA SAIR || APERTE ->1 PARA TENTAR NOVAMENTE ")
 
-    if(escolha_input == '0'):
+    if (escolha_input == '0'):
         print("SAIU DO JOGO")
         break
-    elif(escolha_input == '1'):
+    elif (escolha_input == '1'):
         print("********************************")
         print("bem vindo ao jogo de adivinhação")
         print("********************************")
 
-        numero_secreto = random.randint(1,10)
+        numero_secreto = random.randint(1, 10)
 
         total_tentativas = 3
         tentativa = 1
@@ -63,11 +61,12 @@ while True:
         while (tentativa <= total_tentativas):
             entrada = input("Digite um número: ")
             numero_usuario = int(entrada)
-            print(tentativa, "de", total_tentativas)
-            print("você escolheu o número:", numero_usuario)
+            print("tentativa {} de {}".format(tentativa, total_tentativas))
+            print("você escolheu o número:{}".format(numero_usuario))
 
             if (numero_secreto == numero_usuario):
                 print("PARABÉNS, VOCÊ ACERTOU O NUMERO")
+                break
             elif (numero_secreto > numero_usuario):
                 print("CHUTE BAIXO")
             else:
@@ -76,18 +75,9 @@ while True:
             if (tentativa == 2):
                 print("Ultima chance, escolha com sabedoria")
             elif (tentativa == 3):
-                print("O NUMERO ERA:",numero_secreto)
+                print("O NUMERO ERA:{}".format(numero_secreto))
                 print("******GAME OVER******")
 
             tentativa = tentativa + 1
     else:
         print("ESCOLHA UMA OPÇÃO VÁLIDA(0 OU 1)")
-
-
-
-
-
-
-
-
-
