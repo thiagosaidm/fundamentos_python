@@ -15,16 +15,26 @@ while True:
     else:
         print("DIGITE ->1<- PARA COMEÇAR")
 
-numero_secreto = 1
+numero_secreto = random.randint(1, 10)
 
 total_tentativas = 3
 tentativa = 1
 
+
+
+
 while (tentativa <= total_tentativas):
     entrada = input("Digite um número: ")
     numero_usuario = int(entrada)
+
+
+
     print("tentativa {} de {}".format(tentativa, total_tentativas))
     print("você escolheu o número:{}".format(numero_usuario))
+
+    if (numero_usuario < 1 or numero_usuario > 10):
+        print("O número deve estar entre 1 e 10")
+        continue
 
     if (numero_secreto == numero_usuario):
         print("PARABÉNS, VOCÊ ACERTOU")
