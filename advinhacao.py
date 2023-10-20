@@ -4,8 +4,10 @@ print("********************************")
 print("BEM VINDO AO JOGO DE ADVINHAÇÃO")
 print("********************************")
 
+pontuacao_total = 0
 
 while True:
+    pontos = 0
     total_tentativas = 0
 
     iniciar_jogo = input("****PRESSIONE ->1<- PARA INICIAR****   ")
@@ -29,7 +31,7 @@ while True:
     else:
         print("DIGITE ->1<- PARA COMEÇAR")
 
-numero_secreto = random.randint(1, 10)
+numero_secreto = 1
 
 tentativa = 1
 
@@ -46,6 +48,9 @@ while (tentativa <= total_tentativas):
 
     if (numero_secreto == numero_usuario):
         print("PARABÉNS, VOCÊ ACERTOU")
+        pontos = 10
+        pontuacao_total += pontos
+        print("Você fez {} pontos". format(pontos))
         break
     elif (numero_secreto > numero_usuario):
         print("CHUTE BAIXO")
@@ -57,12 +62,14 @@ while (tentativa <= total_tentativas):
     if (total_tentativas < tentativa):
         print("você escolheu o número:{}".format(numero_usuario))
         print("O NUMERO ERA:{}".format(numero_secreto))
+        print("Você fez {} pontos".format(pontos))
         print("******GAME OVER******")
 
 while True:
     escolha_input = input("***** APERTE -> 0 PARA SAIR || APERTE ->1 PARA TENTAR NOVAMENTE ")
 
     if (escolha_input == '0'):
+        print("Você fez {} pontos no total".format(pontuacao_total))
         print("SAIU DO JOGO")
         break
     elif (escolha_input == '1'):
@@ -81,7 +88,7 @@ while True:
         else:
             total_tentativas = 3
 
-        numero_secreto = random.randint(1, 10)
+        numero_secreto =  1
 
         tentativa = 1
 
@@ -90,8 +97,10 @@ while True:
             print("tentativa {} de {}".format(tentativa, total_tentativas))
 
             if (numero_secreto == numero_usuario):
-                print("PARABÉNS, VOCÊ ACERTOU O NUMERO")
+                print("PARABÉNS, VOCÊ ACERTOU")
                 print("O NUMERO ERA:{}".format(numero_secreto))
+                pontuacao_total += pontos
+                print("Você fez {} pontos".format(pontuacao_total))
                 break
             elif (numero_secreto > numero_usuario):
                 print("CHUTE BAIXO")
@@ -103,6 +112,9 @@ while True:
             if (total_tentativas < tentativa):
                 print("você escolheu o número:{}".format(numero_usuario))
                 print("O NUMERO ERA:{}".format(numero_secreto))
+                print("Você fez {} pontos no total".format(pontuacao_total))
                 print("******GAME OVER******")
+
+
     else:
         print("ESCOLHA UMA OPÇÃO VÁLIDA(0 OU 1)")
