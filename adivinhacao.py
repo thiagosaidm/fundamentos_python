@@ -1,7 +1,7 @@
 import random
 
-def jogar_adivinhacao():
 
+def jogar():
     print("********************************")
     print("BEM VINDO AO JOGO DE ADIVINHAÇÃO")
     print("********************************")
@@ -21,9 +21,9 @@ def jogar_adivinhacao():
 
             dificuldade = int(input("Fácil (1) // Médio(2) // Dífícil (3):"))
 
-            if(dificuldade == 1):
+            if (dificuldade == 1):
                 total_tentativas = 10
-            elif(dificuldade == 2):
+            elif (dificuldade == 2):
                 total_tentativas = 5
             else:
                 total_tentativas = 3
@@ -37,12 +37,10 @@ def jogar_adivinhacao():
 
     tentativa = 1
 
-
     while (tentativa <= total_tentativas):
         numero_usuario = int(input("Digite um número: "))
 
         print("tentativa {} de {}".format(tentativa, total_tentativas))
-
 
         if (numero_usuario < 1 or numero_usuario > 10):
             print("O número deve estar entre 1 e 10")
@@ -52,7 +50,7 @@ def jogar_adivinhacao():
             print("PARABÉNS, VOCÊ ACERTOU")
             pontos = 10
             pontuacao_total += pontos
-            print("Você fez {} pontos". format(pontos))
+            print("Você fez {} pontos".format(pontos))
             break
         elif (numero_secreto > numero_usuario):
             print("CHUTE BAIXO")
@@ -75,9 +73,7 @@ def jogar_adivinhacao():
             print("SAIU DO JOGO")
             break
         elif (escolha_input == '1'):
-            print("********************************")
-            print("BEM VINDO AO JOGO DE ADIVINHAÇÃO")
-            print("********************************")
+            print("*************NOVA RODADA*******************")
             print("Selecione a dificuldade")
 
             dificuldade = int(input("Fácil (1) // Médio(2) // Dífícil (3):"))
@@ -120,3 +116,7 @@ def jogar_adivinhacao():
 
         else:
             print("ESCOLHA UMA OPÇÃO VÁLIDA(0 OU 1)")
+
+
+if (__name__ == "__main__"):
+    jogar()

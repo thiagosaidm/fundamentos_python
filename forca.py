@@ -1,5 +1,5 @@
 import random
-def jogar_forca():
+def jogar():
 
     print("**********************************************")
     print("**********BEM VINDO AO JOGO DA FORCA**********")
@@ -12,3 +12,5 @@ def jogar_forca():
     print("******GAME OVER******")
 
 
+if (__name__ == "__main__"):
+    jogar()
