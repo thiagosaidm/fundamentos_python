@@ -22,23 +22,34 @@ def jogar():
 
     acertou = False
     enforcou = False
+    tentativas = 0
 
     while (not acertou and not enforcou):
         print("Jogando")
         print("A palavra têm {} letras".format(quantidade_letras))
         print(" ".join(letras_acertadas))
         chute = input("Digite uma letra:")
+
         if (chute.isalpha()):
             chute = chute.lower()
         else:
             print("Você deve digitar apenas letras")
-
-        index = 0
-        for letra in palavra_secreta:
-            if(chute == letra):
-                letras_acertadas[index] = letra
-            index = index + 1
+        if(chute in palavra_secreta):
+            index = 0
+            for letra in palavra_secreta:
+                if(chute == letra):
+                    letras_acertadas[index] = letra
+                index += 1
+        else:
+            tentativas += 1
+        enforcou = tentativas == 6
+        acertou = "_" not in letras_acertadas
         print(letras_acertadas)
+
+        if(acertou):
+            print("Parabéns! Você acertou a palavra")
+        else:
+            print("Você perdeu")
 
 if (__name__ == "__main__"):
     jogar()
