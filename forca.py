@@ -25,7 +25,7 @@ def jogar():
     tentativas = 0
 
     while (not acertou and not enforcou):
-        print("Jogando")
+        print("Escolha uma letra")
         print("A palavra têm {} letras".format(quantidade_letras))
         print(" ".join(letras_acertadas))
         chute = input("Digite uma letra:")
@@ -36,19 +36,21 @@ def jogar():
             print("Você deve digitar apenas letras")
         if(chute in palavra_secreta):
             index = 0
+            print("Você acertou! Tem a letra {}".format(chute))
             for letra in palavra_secreta:
                 if(chute == letra):
                     letras_acertadas[index] = letra
                 index += 1
         else:
             tentativas += 1
+            print("Você errou! Restam {} tentativas".format(6-tentativas))
         enforcou = tentativas == 6
         acertou = "_" not in letras_acertadas
         print(letras_acertadas)
 
-        if(acertou):
+    if(acertou):
             print("Parabéns! Você acertou a palavra")
-        else:
+    else:
             print("Você perdeu")
 
 if (__name__ == "__main__"):
