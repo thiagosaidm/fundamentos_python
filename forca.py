@@ -18,15 +18,16 @@ def jogar():
     #  - Para isso é preciso tratar a entrada, usei a função lower()
     #  - Para saber se é uma letra, usei isaplha()
 
-    arquivo = open("palavras.txt", "r")
 
-    palavras = []
+    #with abre o arquivo e fecha, mesmo que dê erro
+    with open("palavras.txt") as arquivo:
 
-    for linha in arquivo:
-        linha = linha.strip()
-        palavras.append(linha)
+        palavras = []
 
-    arquivo.close()
+        for linha in arquivo:
+            linha = linha.strip()
+            palavras.append(linha)
+
 
     # será usado um random para sortear a palavra
     # cada palavra terá um index, por esse, saberemos qual será a palavra escolhida
