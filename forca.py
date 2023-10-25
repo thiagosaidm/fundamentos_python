@@ -10,12 +10,31 @@ def jogar():
     # Enquanto não acertar e/ou ganhar: continuar a jogar
     # Abaixo teremos a palavra secreta
 
+    # Para escolher a palavra o programa terá que ler o arquivo txt com algumas palavras
+    # É preciso usar uma lista para guardar as palavras
+    # Também precisa limpar as strings
+
     # O programa tem q aceitar letra minuscula e maiscula e apenas letras:
     #  - Para isso é preciso tratar a entrada, usei a função lower()
     #  - Para saber se é uma letra, usei isaplha()
 
-    palavra_secreta = "Python"
-    palavra_secreta = palavra_secreta.lower()
+    arquivo = open("palavras.txt", "r")
+
+    palavras = []
+
+    for linha in arquivo:
+        linha = linha.strip()
+        palavras.append(linha)
+
+    arquivo.close()
+
+    # será usado um random para sortear a palavra
+    # cada palavra terá um index, por esse, saberemos qual será a palavra escolhida
+
+    numero_da_palavra = random.randrange(0,len(palavras))
+
+    palavra_secreta = palavras[numero_da_palavra].lower()
+
     # A função len() me diz o tamanho da string
     quantidade_letras = len(palavra_secreta)
     letras_acertadas = ["_"] * quantidade_letras

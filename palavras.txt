@@ -2,3 +2,7 @@ Banana
 Morango
 Jaca
 Melancia
+Tomate
+laranja
+pera
+limao
