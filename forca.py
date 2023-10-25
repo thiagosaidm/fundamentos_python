@@ -1,43 +1,23 @@
+# define-se as variáveis de regra do jogo: Enforcou = Perdeu | Acertou = Ganhou,
+# Enquanto não acertar e/ou ganhar: continuar a jogar
+# Abaixo teremos a palavra secreta
+
+# Para escolher a palavra o programa terá que ler o arquivo txt com algumas palavras
+# É preciso usar uma lista para guardar as palavras
+# Também precisa limpar as strings
+
+# O programa tem q aceitar letra minuscula e maiscula e apenas letras:
+#  - Para isso é preciso tratar a entrada, usei a função lower()
+#  - Para saber se é uma letra, usei isaplha()
+
+
 import random
 
-
 def jogar():
-    print("**********************************************")
-    print("**********BEM VINDO AO JOGO DA FORCA**********")
-    print("**********************************************")
+    imprime_boasvindas()
+    palavra_secreta = carregar_palavra()
 
-    # define-se as variáveis de regra do jogo: Enforcou = Perdeu | Acertou = Ganhou,
-    # Enquanto não acertar e/ou ganhar: continuar a jogar
-    # Abaixo teremos a palavra secreta
-
-    # Para escolher a palavra o programa terá que ler o arquivo txt com algumas palavras
-    # É preciso usar uma lista para guardar as palavras
-    # Também precisa limpar as strings
-
-    # O programa tem q aceitar letra minuscula e maiscula e apenas letras:
-    #  - Para isso é preciso tratar a entrada, usei a função lower()
-    #  - Para saber se é uma letra, usei isaplha()
-
-
-    #with abre o arquivo e fecha, mesmo que dê erro
-    with open("palavras.txt") as arquivo:
-
-        palavras = []
-
-        for linha in arquivo:
-            linha = linha.strip()
-            palavras.append(linha)
-
-
-    # será usado um random para sortear a palavra
-    # cada palavra terá um index, por esse, saberemos qual será a palavra escolhida
-
-    numero_da_palavra = random.randrange(0,len(palavras))
-
-    palavra_secreta = palavras[numero_da_palavra].lower()
-
-    # A função len() me diz o tamanho da string
-    quantidade_letras = len(palavra_secreta)
+    quantidade_letras = len(palavra_secreta) # A função len() me diz o tamanho da string
     letras_acertadas = ["_"] * quantidade_letras
 
     acertou = False
@@ -73,5 +53,25 @@ def jogar():
     else:
             print("Você perdeu")
 
+def imprime_boasvindas():
+        print("**********************************************")
+        print("**********BEM VINDO AO JOGO DA FORCA**********")
+        print("**********************************************")
+
+def carregar_palavra():
+
+        with open("palavras.txt") as arquivo:  # with abre o arquivo e fecha, mesmo que dê erro
+            palavras = []
+
+            for linha in arquivo:
+                linha = linha.strip()
+                palavras.append(linha)
+
+            numero_da_palavra = random.randrange(0, len(palavras))  # será usado um random para sortear a palavra
+
+            palavra_secreta = palavras[numero_da_palavra].lower()  # cada palavra terá um index, por esse, saberemos qual será a palavra escolhida
+            return palavra_secreta
+
 if (__name__ == "__main__"):
     jogar()
+
