@@ -2,21 +2,19 @@ import random
 
 
 def jogar():
-    print("********************************")
-    print("BEM VINDO AO JOGO DE ADIVINHAÇÃO")
-    print("********************************")
+
+    imprime_boas_vindas()
 
     pontuacao_total = 0
 
     while True:
         pontos = 0
-        total_tentativas = 0
 
         iniciar_jogo = input("****PRESSIONE ->1<- PARA INICIAR****   ")
 
         if (iniciar_jogo == '1'):
-            print("****VAMOS COMEÇAR O JOGO****")
 
+            print("****VAMOS COMEÇAR O JOGO****")
             print("Selecione a dificuldade")
 
             dificuldade = int(input("Fácil (1) // Médio(2) // Dífícil (3):"))
@@ -117,6 +115,10 @@ def jogar():
         else:
             print("ESCOLHA UMA OPÇÃO VÁLIDA(0 OU 1)")
 
+def imprime_boas_vindas():
+    print("********************************")
+    print("BEM VINDO AO JOGO DE ADIVINHAÇÃO")
+    print("********************************")
 
 if (__name__ == "__main__"):
     jogar()
