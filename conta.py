@@ -10,6 +10,7 @@ class Conta:
         print("Conta Criada {}". format(titular))
     def extrato(self):
             print("O saldo do titular {}, é de {}". format(self.titular, self.saldo))
+            print("Limite cheque especial é de {}". format(self.limite))
 
     def depositar(self):
         valor_deposito = int(input("Digite o valor a ser depositado"))
