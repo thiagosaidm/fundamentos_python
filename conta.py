@@ -12,15 +12,23 @@ class Conta:
             print("O saldo do titular {}, é de {}". format(self.__titular, self.__saldo))
             print("Limite cheque especial é de {}". format(self.__limite))
 
-    def depositar(self):
-        valor_deposito = int(input("Digite o valor a ser depositado"))
-        print("O valor de R${} foi depositado em conta". format(valor_deposito))
-        self.__saldo += valor_deposito
+    def depositar(self, valor):
+        print("O valor de R${} foi depositado em conta do titular {}". format(valor, self.__titular))
+        self.__saldo += valor
 
-    def sacar(self):
-        valor_saque = int(input("Digite o valor a ser sacado"))
-        if(valor_saque <= self.__saldo):
-            self.__saldo -= valor_saque
-            print("Você sacou R${} da sua conta". format(valor_saque))
+    def sacar(self, valor):
+        if(valor <= self.__saldo):
+            self.__saldo -= valor
+            print("Você sacou R${} da sua conta". format(valor))
         else:
             print("Você não tem saldo suficiente para essa operação, seu saldo é de R${}". format(self.__saldo))
+
+    def transferir(self, valor, destino):
+            if(valor <= self.__saldo):
+                self.sacar(valor)
+                print("Você transferiu R${}".format(valor))
+                destino.depositar(valor)
+            elif(valor >= self.__saldo):
+                print("Você não tem saldo suficiente para essa operação, seu saldo é de R${}".format(self.__saldo))
+
+
