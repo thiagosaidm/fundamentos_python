@@ -32,3 +32,8 @@ class Conta:
                 print("Você não tem saldo suficiente para essa operação, seu saldo é de R${}".format(self.__saldo))
 
 
+    def get_limite(self):
+        return self.__limite
+
+    def set_limite(self, limite):
+        self.__limite = limite
