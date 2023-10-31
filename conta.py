@@ -9,6 +9,13 @@ class Conta:
         self.__limite = limite
         self.__cheque = cheque
         print("Conta Criada {}". format(titular))
+
+    # Static Method : é um metodo que pode ser chamado direto da classe
+    # Não necessita da instancia de uma classe para ser chamado, eu posso chamar o "codigo_banco" sem criar um objeto
+    @staticmethod
+    def codigo_banco():
+        return "33394"
+
     def extrato(self):
             print("O saldo do titular {}, é de {}". format(self.__titular, self.__saldo))
             print("Limite cheque especial é de {}". format(self.__limite))
@@ -17,19 +24,24 @@ class Conta:
         print("O valor de R${} foi depositado em conta do titular {}". format(valor, self.__titular))
         self.__saldo += valor
 
+    def autorizador_movimentacao(self, valor_saque):
+        valor_disponivel = self.__saldo + self.__cheque
+        return valor_saque <= valor_disponivel
+
+
     def sacar(self, valor):
-        if(valor <= self.__saldo):
+        if(self.autorizador_movimentacao(valor)):
             self.__saldo -= valor
             print("Você sacou R${} da sua conta". format(valor))
         else:
             print("Você não tem saldo suficiente para essa operação, seu saldo é de R${}". format(self.__saldo))
 
     def transferir(self, valor, destino):
-            if(valor <= self.__saldo):
+            if(valor <= self.autorizador_movimentacao(valor)):
                 self.sacar(valor)
                 print("Você transferiu R${}".format(valor))
                 destino.depositar(valor)
-            elif(valor >= self.__saldo):
+            elif(valor >= self.__saldo + self.__cheque):
                 print("Você não tem saldo suficiente para essa operação, seu saldo é de R${}".format(self.__saldo))
 
 
